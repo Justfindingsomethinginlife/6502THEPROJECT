@@ -1,11 +1,22 @@
+#ifndef SOURCE_H_INCLUDED
+#define SOURCE_H_INCLUDED
+
 #include<stdint.h>
 
-uint8_t PSR = 0xFF;
-uint8_t Accumulator = 0x00;
-uint8_t IRX=0x00;
-uint8_t IRY=0x00;
+extern uint8_t PSR;
+extern uint8_t Accumulator;
+extern uint8_t IRX;
+extern uint8_t IRY;
 
-uint8_t PCL = 0xFC;
-uint8_t PCH = 0xFF;
-uint16_t PC;
+extern uint8_t PCL;
+extern uint8_t PCH;
+extern uint16_t PC;
+
+extern int isEmpty(uint8_t *stack);
+extern int isFull(uint8_t *stack,int pos,int size);
+extern int peek(uint8_t *stack,int pos);
+extern int push(uint8_t *stack,int *pos,int size,uint8_t val);
+extern int pop(uint8_t *stack,int *pos,int size);
+
+#endif
 

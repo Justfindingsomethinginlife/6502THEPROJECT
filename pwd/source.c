@@ -4,11 +4,17 @@
 #include"source.h"
 
 //------------------------------------------------------------------------------------------------
-
 //							CONSTANT
 
+uint8_t PSR = 0x00 | 0x20 ;
+uint8_t Accumulator = 0x00;
+uint8_t IRX = 0x00;
+uint8_t IRY = 0x00;
+uint16_t DL= 0x00;
 
-
+uint8_t PCL=0xfc;
+uint8_t PCH=0xff;
+uint16_t PC=0x00;
 //------------------------------------------------------------------------------------------------
 
 #define STACK_ADDR_MAX = 0x1FF;
@@ -76,11 +82,14 @@ int pop(uint8_t *stack,int *pos,int size){
 
 
 //----------------------------------------------------------------------------------------------------
-
+//						Address Manipulation
 
 uint16_t initialize(uint8_t PCL,uint8_t PCH,uint16_t PC){
 	PC = (PCH<<8)|PCL;
 	return PC;
+}
+
+int Addr_INC(int PC){
 }
 
 
@@ -91,6 +100,7 @@ uint16_t initialize(uint8_t PCL,uint8_t PCH,uint16_t PC){
 int main(){
 	int pos=-1;
 	int size = 256;
+	
 	uint8_t *STACK_256 = (uint8_t*)malloc(256*sizeof(uint8_t));
 	return 0;
 }

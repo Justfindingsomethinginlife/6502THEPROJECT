@@ -7,6 +7,7 @@ extern uint8_t PSR;
 extern uint8_t Accumulator;
 extern uint8_t IRX;
 extern uint8_t IRY;
+extern uint16_t DL;
 
 extern uint8_t PCL;
 extern uint8_t PCH;
@@ -17,6 +18,8 @@ extern int isFull(uint8_t *stack,int pos,int size);
 extern int peek(uint8_t *stack,int pos);
 extern int push(uint8_t *stack,int *pos,int size,uint8_t val);
 extern int pop(uint8_t *stack,int *pos,int size);
+
+extern int Addr_INC(int PC);
 
 #endif
 

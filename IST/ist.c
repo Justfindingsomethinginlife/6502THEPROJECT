@@ -37,8 +37,14 @@ uint8_t PHA(uint8_t *stack,uint8_t val,int pos,int size){
 
 }
 
+
 uint8_t Instruction_Decode(uint8_t IST){
 	
+	switch(IST){
+
+		case 0x01:
+
+	}	
 }
 
 

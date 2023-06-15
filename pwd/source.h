@@ -13,13 +13,13 @@ extern uint8_t PCL;
 extern uint8_t PCH;
 extern uint16_t PC;
 
-extern int isEmpty(uint8_t *stack);
-extern int isFull(uint8_t *stack,int pos,int size);
+extern int isEmpty(uint8_t *stack,int *pos);
+extern int isFull(uint8_t *stack,int *pos,int size);
 extern int peek(uint8_t *stack,int pos);
 extern int push(uint8_t *stack,int *pos,int size,uint8_t val);
 extern int pop(uint8_t *stack,int *pos,int size);
 
-extern int Addr_INC(int PC);
+extern int Addr_INC(int *PC);
 
 #endif
 

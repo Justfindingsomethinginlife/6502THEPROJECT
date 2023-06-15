@@ -4,7 +4,7 @@
 #include"source.h"
 
 //------------------------------------------------------------------------------------------------
-//							CONSTANT
+//						   DATA_REGISTER
 
 uint8_t PSR = 0x00 | 0x20 ;
 uint8_t Accumulator = 0x00;
@@ -36,19 +36,19 @@ int init(uint8_t *stack,int pos,int size){
 	}
 }
 
-int isEmpty(uint8_t *stack){
-	if(stack == NULL){return 1;}
+int isEmpty(uint8_t *stack,int *pos){
+	if(*pos == -1){return 1;}
 	else{return 0;}
 }
 
-int isFull(uint8_t *stack,int pos,int size){
-	if(isEmpty(stack)){return -1;}
+int isFull(uint8_t *stack,int *pos,int size){
 
-	if(pos == size){
-		return 0;
+
+	if(*pos == size){
+		return 1;
 	}
 	else{
-		return 1;
+		return 0;
 	}
 }
 
@@ -57,22 +57,20 @@ int peek(uint8_t *stack,int pos){
 }
 
 int push(uint8_t *stack,int *pos,int size,uint8_t val){
-	if(isEmpty(stack)){
-		return -1;
-	}
-
-	if(!isFull(stack,*pos,size)){
+	
+	if(isFull(stack,pos,size)){
 		return 2;
 	}
 	else{
 		stack[(*pos)+1] = val;
 	}
+
 	(*pos)++;
 
 }
 
 int pop(uint8_t *stack,int *pos,int size){
-	if(isEmpty(stack)){
+	if(isEmpty(stack,pos)){
 		return -1;
 	}
 	else{
@@ -88,11 +86,10 @@ uint16_t initialize(uint8_t PCL,uint8_t PCH,uint16_t PC){
 	PC = (PCH<<8)|PCL;
 	return PC;
 }
-
-int Addr_INC(int PC){
+	
+int Addr_INC(int *PC){
+	(*PC)++;
 }
-
-
 
 
 
@@ -102,6 +99,7 @@ int main(){
 	int size = 256;
 	
 	uint8_t *STACK_256 = (uint8_t*)malloc(256*sizeof(uint8_t));
+
 	return 0;
 }
 

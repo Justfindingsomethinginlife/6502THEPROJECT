@@ -13,6 +13,16 @@ extern int RWB_STATUS(int RWB);
 extern int ReadDATA(FILE *f);
 
 extern uint8_t PHA(uint8_t *stack,uint8_t val,int pos,int size);
+extern int nop(uint16_t *PC);
+extern int DEX();
+extern int DEY();
+extern int TAX();
+extern int TAY();
+extern int TXA();
+extern int TXS();
+extern int TSX();
+
+
 //NOT COMPLETE!
 
 #endif

@@ -25,24 +25,18 @@ int ReadDATA(FILE *f){
 	return 1;
 }
 
-uint8_t PHA(uint8_t *stack,uint8_t val,int pos,int size){
-	if(stack == NULL){return 0;}
-
-	if( val < 0 || val > 255){
-		return -1;
-	}
-	else{
-		isFull(stack,pos,size);	
-	}
-
+int nop(uint16_t *PC){
+	(*PC)++;
+	return 1;
 }
 
-
-uint8_t Instruction_Decode(uint8_t IST){
+uint8_t Instruction_Decode(uint8_t IST,uint8_t *PSR,uint8_t *Accumulator,uint8_t *IRX,uint8_t *IRY,uint16_t *DL,uint8_t *PCH,uint8_t *PCL,uint16_t *PC){
 	
 	switch(IST){
 
-		case 0x01:
+		case 0xEA:
+			nop(PC);
+			break;
 
 	}	
 }

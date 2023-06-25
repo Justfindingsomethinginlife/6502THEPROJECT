@@ -94,15 +94,5 @@ int Addr_INC(int *PC){
 
 
 
-int main(){
-	int pos=-1;
-	int size = 256;
-	
-	uint8_t *STACK_256 = (uint8_t*)malloc(256*sizeof(uint8_t));
-
-	return 0;
-}
-
-
 
 

@@ -38,23 +38,26 @@ uint8_t Instruction_Decode(uint8_t IST,uint8_t *PSR_1,uint8_t *Accumulator_1,uin
 
 		case 0xEA: //NOP
 			(*PC_1)++;
-			printf("S");
 			break;
 
 		case 0xE8: //INY
 			(*IRY_1)++;
+			(*PC_1)++;
 			break;
 
 		case 0xC8: //INX
 			(*IRX_1)++;
+			(*PC_1)++;
 			break;
 		
 		case 0xCA: //DEX
 			(*IRX_1)--;
+			(*PC_1)++;
 			break;
 
 		case 0x88: //DEY
 			(*IRY_1)--;
+			(*PC_1)++;
 			break;
 	}	
 }

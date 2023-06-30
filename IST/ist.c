@@ -27,18 +27,39 @@ int ReadDATA(FILE *f){
 
 int nop(uint16_t *PC){
 	(*PC)++;
-	return 1;
 }
 
-uint8_t Instruction_Decode(uint8_t IST,uint8_t *PSR,uint8_t *Accumulator,uint8_t *IRX,uint8_t *IRY,uint16_t *DL,uint8_t *PCH,uint8_t *PCL,uint16_t *PC){
+
+
+
+uint8_t Instruction_Decode(uint8_t IST,uint8_t *PSR_1,uint8_t *Accumulator_1,uint8_t *IRX_1,uint8_t *IRY_1,uint16_t *DL_1,uint8_t *PCH_1,uint8_t *PCL_1,uint16_t *PC_1 ,uint8_t *stack){
 	
 	switch(IST){
 
-		case 0xEA:
-			nop(PC);
+		case 0xEA: //NOP
+			(*PC_1)++;
+			printf("S");
 			break;
 
+		case 0xE8: //INY
+			(*IRY_1)++;
+			break;
+
+		case 0xC8: //INX
+			(*IRX_1)++;
+			break;
+		
+		case 0xCA: //DEX
+			(*IRX_1)--;
+			break;
+
+		case 0x88: //DEY
+			(*IRY_1)--;
+			break;
 	}	
 }
+
+
+
 
 

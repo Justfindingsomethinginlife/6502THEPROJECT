@@ -10,8 +10,8 @@ int main(){
 	printf("%d",IRX);
 	Instruction_Decode(0xC8,&PSR,&Accumulator,&IRX,&IRY,&DL,&PCH,&PCL,&PC,stack_256);
 	printf("%d",IRX);
-	Instruction_Decode(0xCA,&PSR,&Accumulator,&IRX,&IRY,&DL,&PCH,&PCL,&PC,stack_256);
-	printf("%d",IRX);
+	Instruction_Decode(0x8A,&PSR,&Accumulator,&IRX,&IRY,&DL,&PCH,&PCL,&PC,stack_256);
+	printf("%d",Accumulator);
 }
 
 

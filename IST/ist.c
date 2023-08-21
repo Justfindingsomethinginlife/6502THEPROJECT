@@ -62,18 +62,22 @@ uint8_t Instruction_Decode(uint8_t IST,uint8_t *PSR_1,uint8_t *Accumulator_1,uin
 
 		case 0xAA: //TAX
 			(*IRX_1) = (*Accumulator_1);
+			(*PC_1)++;
 			break;
 
 		case 0xA8: //TAY
 			(*IRY_1) = (*Accumulator_1);
+			(*PC_1)++;
 			break;
 
 		case 0x8A: //TXA
 			(*Accumulator_1) = (*IRX_1);
+			(*PC_1)++;
 			break;
 
 		case 0x98: //TYA
 			(*Accumulator_1) = (*IRY_1);
+			(*PC_1)++;
 			break;
 
 	}	

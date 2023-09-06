@@ -1,23 +1,45 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include "../pwd/source.h"
+#include "../IST/ist.h"
 
-int main()
+int Instruction(char * path,uint8_t *stack,int *pos)
 {
-	FILE *fp;
-	char * line[20] = NULL;
-	size_t len =0;
-	ssize_t read;
+	
+	FILE* fp = fopen("main.txt","r");
+	char * linecmp = "NOP";
+	char line[10];
+	while(fgets(line,10,fp) != NULL)
+	{
+		if(strstr(line,"NOP"))
+		{
+			Instruction_Decode(0xEA,&PSR,&Accumulator,&IRX,&IRY,&DL,&PCH,&PCL,&PC,stack,pos);
+		}
 
-	fp = fopen("main.txt","r");
-	if(fp == NULL) exit(EXIT_FAILURE);
-
-	while((read = getline(&line,&len,fp)) != -1){
-		printf("%s",line);
+	//	if(line[strlen(line)-1] != '\n') printf("\n");
 	}
 
 	fclose(fp);
-	if(line)
-		free(line);
-	exit(EXIT_SUCCESS);	
 }
+
+
+/***
+int main()
+{
+	FILE* fp = fopen("main.txt","r");
+	char * linecmp = "NOP";
+	char line[10];
+	while(fgets(line,10,fp) != NULL)
+	{
+		if(strstr(line,"NOP"))
+		{
+
+		}
+
+	//	if(line[strlen(line)-1] != '\n') printf("\n");
+	}
+
+	fclose(fp);
+}
+***/

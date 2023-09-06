@@ -1,0 +1,5 @@
+.org $2000
+
+NOP
+NOP
+NOP
